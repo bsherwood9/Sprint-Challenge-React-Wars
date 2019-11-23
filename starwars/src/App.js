@@ -21,23 +21,43 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
   const [list, setList] = useState([]);
+  const [page, setPage] = useState("https://swapi.co/api/people/");
+  const Button = styled.button`
+    width: 100px;
+    font-size: 20px;
+    padding: 1%;
+    margin: 2% auto;
+    background: darkred;
+    border-radius: 50%;
+    border: black;
+    color: white;
+  `;
+
   useEffect(() => {
     axios
-      .get("https://swapi.co/api/people/")
+      .get(`${page}`)
       .then(response => {
         setList(response.data.results);
+        setPage(response.data);
       })
       .catch(error => console.log("Error is:", error));
-  }, []);
+  }, [page]);
   console.log(list);
+  console.log(page);
+
+  const NextPage = () => {
+    setPage(page.next);
+  };
+
   return (
     <div className="App">
-      <Header />
+      <Header pages={page} setpages={setPage} />
       <CardGrid>
         {list.map((item, i) => {
           return <CharCard key={i} data={item} />;
         })}
       </CardGrid>
+      <Button onClick={NextPage}>Next</Button>
     </div>
   );
 };

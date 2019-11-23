@@ -14,12 +14,8 @@ const Head = styled.div`
 
 const Brand = styled.img`
   padding: 10px;
-  width: 400px;
-  height: 100px;
-`;
-
-const H3 = styled.h3`
-  padding: 0 5%;
+  width: 120%;
+  height: auto;
 `;
 
 const Header = () => {
@@ -27,7 +23,7 @@ const Header = () => {
     <Head>
       <Brand alt="star wars" src={Blah} />
       <div>
-        <H3>Characters and Attributes</H3>
+        <h3>Characters and Attributes</h3>
       </div>
     </Head>
   );
