@@ -3,6 +3,7 @@ import axios from "axios";
 import "./App.css";
 import CharCard from "./components/CharCard";
 import styled from "styled-components";
+import Header from "../src/components/Header";
 
 const CardGrid = styled.div`
   width: 100%;
@@ -10,6 +11,7 @@ const CardGrid = styled.div`
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin: 3% 0;
 `;
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -30,6 +32,7 @@ const App = () => {
   console.log(list);
   return (
     <div className="App">
+      <Header />
       <CardGrid>
         {list.map((item, i) => {
           return <CharCard key={i} data={item} />;
