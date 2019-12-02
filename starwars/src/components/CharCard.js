@@ -2,7 +2,7 @@ import React from "react";
 import Species from "./Species";
 import styled from "styled-components";
 
-// import FilmList from "./FilmList";
+import FilmList from "./FilmList";
 
 const Cards = styled.div`
   width: 30%;
@@ -20,7 +20,7 @@ const CharCard = ({ data }) => {
       <p>Height: {data.height}</p>
       <p>Mass: {data.mass}</p>
       <Species info={data.species} />
-      {/* <FilmList films={data.films} /> */}
+      <FilmList films={data.films} />
     </Cards>
   );
 };
